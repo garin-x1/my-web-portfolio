@@ -1,3 +1,95 @@
-<div class="">
+---
+import ProjectCard from "@/components/myui/ProjectCard.astro";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+const projects : {
+    title: string;
+    description: string;
+    techStack: {
+        tech: string;
+        type: "default" | "outline" | "secondary";
+        class: string;
+    }[];
+    link: string;
+    source: string;
+}[] = [
+    {
+        title: "News AI",
+        description: "News portal specialized in AI-related articles and updates.",
+        techStack: [
+            { tech: "NextJS", type: "default", class: "" },
+            { tech: "Tailwind CSS", type: "outline", class: "" },
+            { tech: "TypeScript", type: "secondary", class: "" },
+        ],
+        link: "#",
+        source: "#",
+    },{
+        title: "Finate",
+        description: "A financial noting web app that allow user to store history of finacial note on their daily life.",
+        techStack: [
+            { tech: "NextJS", type: "default", class: "" },
+            { tech: "TailwindCSS", type: "default", class: "" },
+            { tech: "PostgreSQL", type: "outline", class: "" },
+            { tech: "DrizzleORM", type: "secondary", class: "" },
+        ],
+        link: "#",
+        source: "#",
+    },
+    {
+        title: "Weatherinx",
+        description: "A beautiful weather web app that give user a lot of information about their weather based on their GPS location.",
+        techStack: [
+            { tech: "Javascript", type: "default", class: "" },
+            { tech: "HTML", type: "secondary", class: "" },
+            { tech: "CSS", type: "secondary", class: "" },
+        ],
+        link: "#",
+        source: "#",
+    },
+    {
+        title: "Ecrire",
+        description: "A Simple note taking web app.",
+        techStack: [
+            { tech: "React", type: "default", class: "" },
+        ],
+        link: "#",
+        source: "#",
+    }
+]
+---
+
+<div class="border-t flex justify-center-safe flex-col items-center p-6">
     <h1>My Projects</h1>
+    <div class="grid place-content-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+    <!-- <div class="flex flex-wrap justify-center gap-6 mt-6"> -->
+    <!-- <Carousel client:load
+        opts={{
+            loop: true,
+            align: "start",
+        }}>
+        <CarouselContent>
+        {projects.map((project, index) => (
+            <CarouselItem key={index}>
+                <ProjectCard 
+                    title={project.title} 
+                    description={project.description} 
+                    techStack={project.techStack} 
+                    link={project.link} 
+                    source={project.source}
+                />
+            </CarouselItem>
+        ))}
+        </CarouselContent>
+        <CarouselNext />
+        <CarouselPrevious />
+    </Carousel> -->
+        {projects.map((project) => (
+            <ProjectCard 
+                title={project.title} 
+                description={project.description} 
+                techStack={project.techStack} 
+                link={project.link} 
+                source={project.source}
+            />
+        ))}
+    </div>
 </div>
